@@ -17,14 +17,13 @@ new Chart(dailyTraffic, {
       labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
       datasets: [{
         data: [70, 120, 175, 125, 200, 225, 100 ],
-        borderWidth: 2
+        borderWidth: 0
       }]
     },
     options: {
       elements: {
         bar: {
-          borderColor: chartColor,
-          backgroundColor: chartBackgroundColor,
+          backgroundColor: chartColor,
         },
       },
         plugins: {
@@ -101,14 +100,19 @@ new Chart(dailyTraffic, {
     );
   })();
 
-// Pie Daily Traffic
+// Doughnut Daily Traffic
 new Chart(mobileTraffic, {
   type: 'doughnut',
   data: {
     labels: ['Desktop', 'Tablet', 'Phones'],
     datasets: [{
       data: [60, 20, 20],
-      borderWidth: 2
+      borderWidth: 0,
+      backgroundColor: [
+        '#6F4687',
+        '#876F46',
+        '#46876F'
+      ],
     }]
   },
   options: {

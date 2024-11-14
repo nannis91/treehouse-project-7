@@ -92,7 +92,6 @@ p {
     align-self: stretch;
 }
 
-
 header {
 grid-area: header;
 
@@ -196,11 +195,11 @@ header, aside {
     backdrop-filter: blur(12.5px);
 }
 
-.error-banner {
+.warning-banner {
     padding: 1rem;
     border-radius: 0.625rem;
     border: 1px solid var(--light-dark-1004, rgba(255, 255, 255, 0.04));
-    background: linear-gradient(90deg, rgba(225, 21, 21, 0.18) 0%, rgba(225, 21, 21, 0.14) 100%);
+    background: linear-gradient(90deg, rgba(225, 140, 21, 0.18) 0%, rgba(225, 140, 21, 0.14) 100%);
     
     /* Border/Glow */
     box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.08) inset;
