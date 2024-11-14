@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+    <header class="p2 flex">
+        <p><strong>WebApp</strong></p>
+        <div class="flex">
+            <img src="images/svg/bell.svg" class="mr-2">
+            <img src="images/member-1.jpg" class="avatarSmall">
+            <p>Victoria</p>
+        </div>
+    </header>
+
+    <aside class="p2">
+        <img src="images/svg/house.svg" class="aside-active mb-2">
+        <img src="images/svg/chart_line.svg">
+        <img src="images/svg/users.svg">
+        <img src="images/svg/settings.svg">
+    </aside>
+    
+    <main>
+        <div class="error-banner mb-1 flex">
+            <div class="flex">
+                <img src="images/svg/circle_warning.svg" class="mr-0">
+                <p>You have unread messages</p>
+            </div>
+                <img src="images/svg/close_md.svg">
+        </div>
+
+    <div class="content">
+    <section class="surface p2 trafficGeneral">
+        <div class="flex mb-2">
+            <h2>Traffic</h2>
+            <div>
+                <button class="tertiary-active">Hourly</button>
+                <button class="tertiary">Daily</button>
+                <button class="tertiary">Weekly</button>
+                <button class="tertiary">Monthly</button>
+            </div>
+        </div>    
+        <canvas id="traffic" style="max-height: 400px;"></canvas>
+    </section>
+
+    <section class="dailyTraffic surface p2">
+        <h2 class="mb-2">Daily traffic</h2>
+        <canvas id="dailyTraffic" style="max-height: 280px;""></canvas>
+    </section>
+
+    <section class="mobileTraffic surface p2">
+            <h2 class="mb-2">Mobile users</h2>
+            <canvas id="mobileTraffic" style="max-height: 280px;""></canvas>
+    </section>
+
+    <section class="socialTraffic surface p2">
+            <h2>Social</h2>
+    </section>
+
+    <section class="newMembers surface p2">
+            <h2>New members</h2>
+    </section>
+
+    <section class="recentActivity surface p2">
+            <h2>Recent activity</h2>
+    </section>
+
+    <section class="messageUser surface p2">
+            <h2>Message user</h2>
+    </section>
+
+    <section class="settings surface p2">
+            <h2>Settings</h2>
+    </section>
+
+</div>
+
+    </main>
+    <div>
+
+</div><!--content-->
+<script src="charts.js"></script>
+</body>
+</html>
