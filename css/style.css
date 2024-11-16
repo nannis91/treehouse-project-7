@@ -1,0 +1,284 @@
+/*----------------------------------------------------------------------------------*/
+/* GLOBAL STYLES */
+/*----------------------------------------------------------------------------------*/
+
+* { box-sizing: border-box; }
+html { font-family: "Rethink Sans", sans-serif; }
+
+
+/*----------------------------------------------------------------------------------*/
+/* DRY STYLES */
+/*----------------------------------------------------------------------------------*/
+
+/* AVATARS */
+.avatar-s { width: 60px; height: 60px; border-radius: 30px 30px 30px 30px; }
+.avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6, p { margin: 0 ;}
+
+/*----------------------------------------------------------------------------------*/
+/* FLEXBOX UTILITES */
+/*----------------------------------------------------------------------------------*/
+
+/* DISPLAY */
+.d--f { display: flex; }
+.d--if { display: inline-flex; }
+
+/* FLEX DIRECTION */
+.fd--r { flex-direction: row; }
+.fd--c { flex-direction: column; }
+
+
+/* JUSTIFY CONTENT */
+.jc--sb { justify-content: space-between; }
+
+/* ALIGN ITEMS */
+.ai--c { align-items: center; }
+
+/* GAP */
+.ga--s { gap: 0.5rem; }
+.ga--m { gap: 1rem; }
+.ga--l { gap: 1.5rem; }
+.ga--xl { gap: 2rem; }
+
+
+/*----------------------------------------------------------------------------------*/
+/* CSS GRID SETTINGS */
+/*----------------------------------------------------------------------------------*/
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header" 
+    "aside tabs tabs"
+    "aside generalTraffic generalTraffic"
+    "aside dailyTraffic mobileTraffic"
+    "aside socialTraffic socialTraffic"
+    "aside newMembers recentActivity"
+    "aside messageUser settings";
+    text-align: center;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* CSS GRID CHILDREN */
+/*----------------------------------------------------------------------------------*/
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #7477BF;
+    color: #FFF;
+    padding: 24px 16px;
+}
+
+.tabs {
+    grid-area: tabs;
+    background-color: #A45858;
+    height: 50px;
+}
+
+aside {
+    grid-area: aside;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #4D4C72;
+}
+
+.generalTraffic {
+    grid-area: generalTraffic;
+    background-color: #A49158;
+    height: 400px;
+}
+
+.dailyTraffic {
+    grid-area: dailyTraffic;
+    background-color: #6CA458;
+    height: 400px;
+}
+
+.mobileTraffic {
+    grid-area: mobileTraffic;
+    background-color: #58A48A;
+    height: 400px;
+}
+
+.socialTraffic {
+    grid-area: socialTraffic;
+    background-color: #588DA4;
+    height: 400px;
+}
+
+.newMembers {
+    grid-area: newMembers;
+    background-color: #5865A4;
+    height: 400px;
+}
+
+.recentActivity {
+    grid-area: recentActivity;
+    background-color: #6C58A4;
+    height: 400px;
+}
+
+.messageUser {
+    grid-area: messageUser;
+    background-color: #A45860;
+    height: 400px;
+}
+
+.settings {
+    grid-area: settings;
+    background-color: #9458A4;
+    height: 400px;
+}
+
+
+/*----------------------------------------------------------------------------------*/
+/* 768px viewport */
+/*----------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+
+    /*----------------------------------------------------------------------------------*/
+    /* CSS GRID SETTINGS */
+    /*----------------------------------------------------------------------------------*/
+
+    body {
+        grid-template-areas: 
+        "header header header" 
+        "aside tabs tabs"
+        "aside generalTraffic generalTraffic"
+        "aside dailyTraffic mobileTraffic"
+        "aside socialTraffic socialTraffic"
+        "aside newMembers newMembers"
+        "aside recentActivity recentActivity"
+        "aside messageUser messageUser"
+        "aside settings settings";
+    }
+    
+  }
+
+
+/*----------------------------------------------------------------------------------*/
+/* 320px viewport */
+/*----------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 320px) {
+
+    /*----------------------------------------------------------------------------------*/
+    /* DRY STYLES */
+    /*----------------------------------------------------------------------------------*/
+
+    /* AVATARS */
+    .avatar-s { width: 24px; height: 24px; border-radius: 12px 12px 12px 12px; }
+    .avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4, h5, h6, p { margin: 0 ;}
+
+    h1 { font-size: 1.5rem; }
+    p  { font-size: 0.875rem; }
+
+    /*----------------------------------------------------------------------------------*/
+    /* FLEXBOX UTILITES */
+    /*----------------------------------------------------------------------------------*/
+
+    /* DISPLAY */
+    .d--f { display: flex; }
+    .d--if { display: inline-flex; }
+
+    /* JUSTIFY CONTENT */
+    .jc--sb { justify-content: space-between; }
+
+    /* ALIGN ITEMS */
+    .ai--c { align-items: center; }
+
+    /* GAP */
+    .ga--s { gap: 0.2rem; }
+    .ga--m { gap: 0.5rem; }
+    .ga--l { gap: 0.8rem; }
+    .ga--xl { gap: 1rem; }
+
+    /*----------------------------------------------------------------------------------*/
+    /* CSS GRID SETTINGS */
+    /*----------------------------------------------------------------------------------*/
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header" 
+        "aside"
+        "tabs"
+        "generalTraffic"
+        "dailyTraffic"
+        "mobileTraffic"
+        "socialTraffic"
+        "newMembers"
+        "recentActivity"
+        "messageUser"
+        "settings";
+    }
+
+    /*----------------------------------------------------------------------------------*/
+    /* CSS GRID CHILDREN */
+    /*----------------------------------------------------------------------------------*/
+
+    header {
+       
+    }
+
+    .tabs {
+       
+    }
+
+    aside {
+        grid-area: aside;
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.5rem 1rem;
+        background-color: #4D4C72;
+    }
+
+    .generalTraffic {
+       
+    }
+
+    .dailyTraffic {
+       
+    }
+
+    .mobileTraffic {
+        
+    }
+
+    .socialTraffic {
+       
+    }
+
+    .newMembers {
+       
+    }
+
+    .recentActivity {
+        
+    }
+
+    .messageUser {
+       
+    }
+
+    .settings {
+       
+    }
+    
+  }

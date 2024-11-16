@@ -9,37 +9,7 @@ const traffic = document.getElementById('traffic');
 const dailyTraffic = document.getElementById('dailyTraffic');
 const mobileTraffic = document.getElementById('mobileTraffic');
 
-  
-// Chart for Daily Traffic
-new Chart(dailyTraffic, {
-    type: 'bar',
-    data: {
-      labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      datasets: [{
-        data: [70, 120, 175, 125, 200, 225, 100 ],
-        borderWidth: 0
-      }]
-    },
-    options: {
-      elements: {
-        bar: {
-          backgroundColor: chartColor,
-        },
-      },
-        plugins: {
-            legend:{ 
-                display: false,
-              }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
-        }
-      }
-    }
-  });
 
- 
   // Mockdata för Traffic Line
   (async function() {
     const trafficData = [
@@ -100,6 +70,38 @@ new Chart(dailyTraffic, {
     );
   })();
 
+  // Chart for Daily Traffic
+new Chart(dailyTraffic, {
+  type: 'bar',
+  data: {
+    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    datasets: [{
+      data: [70, 120, 175, 125, 200, 225, 100 ],
+      borderWidth: 0
+    }]
+  },
+  options: {
+  responsive: true, 
+  maintenanceAspectRatio: false,
+    elements: {
+      bar: {
+
+        backgroundColor: chartColor,
+      },
+    },
+      plugins: {
+          legend:{ 
+              display: false,
+            }
+      },
+      scales: {
+          y: {
+              beginAtZero: true
+      }
+    }
+  }
+});
+
 // Doughnut Daily Traffic
 new Chart(mobileTraffic, {
   type: 'doughnut',
@@ -116,6 +118,8 @@ new Chart(mobileTraffic, {
     }]
   },
   options: {
+    responsive: true, 
+  maintenanceAspectRatio: false,
     elements: {
       bar: {
         borderColor: chartColor,
@@ -140,3 +144,7 @@ new Chart(mobileTraffic, {
 });
 
 
+window.addEventListener('resize', () => {
+  mychart.resize();
+});
+ 
