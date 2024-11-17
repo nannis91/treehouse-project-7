@@ -211,9 +211,10 @@ aside {
     flex-grow: 1;
 }
 
-.socialTraffic img {
-    border-radius: 40px 40px 40px 40px;
-    padding: 0.5rem;
+.socialTraffic .socialIcon {
+    display: flex;
+    border-radius: 999px;
+    padding: 1rem;
     background-color: #7477BF;
     margin-right: 1rem;
 }
