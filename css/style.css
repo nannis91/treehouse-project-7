@@ -48,7 +48,7 @@ input[type=checkbox]::after { content: ''; position: absolute; top: 50%; left: 3
 input[type=checkbox]:checked { background-color: #7477BF; }
 input[type=checkbox]:checked::after { left: 70%; }
 
-select { background-color: #F5F5F5; border: 1px solid #BEBEC9; border-radius: 5px; min-height: 3rem; padding: 0.5rem; }
+select { background-color: #F5F5F5; border: 1px solid #BEBEC9; border-radius: 5px; min-height: 3rem; padding: 0.7rem;   appearance: none; background-image: url("../images/svg/chevron_small_down.svg"); background-repeat: no-repeat; background-position: right 0.7rem top 50%; background-size: 0.65rem auto; }
 
 /* CHARTS */
 #traffic { max-height: 420px; }
