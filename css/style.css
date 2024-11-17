@@ -3,8 +3,8 @@
 /*----------------------------------------------------------------------------------*/
 
 * { box-sizing: border-box; }
-html { font-family: "Rethink Sans", sans-serif; }
-
+html { background-color: #FFF; font-family: "Rethink Sans", sans-serif; color: #191919;  }
+a { color: #7477BF; text-decoration: none; font-size: 14px; text-align: left;}
 
 /*----------------------------------------------------------------------------------*/
 /* DRY STYLES */
@@ -15,7 +15,47 @@ html { font-family: "Rethink Sans", sans-serif; }
 .avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
 
 /* TYPOGRAPHY */
-h1, h2, h3, h4, h5, h6, p { margin: 0 ;}
+h1, h2, h3, h4, h5, h6, p { margin: 0; text-align: left; font-weight: 400; }
+h2 { margin-bottom: 1rem; }
+
+/* ALERT */
+.alert { width: 100%; background-color: #7477BF; color: #fff; padding: 1rem 1.5rem; margin-bottom: 2rem; border-radius: 5px; display: flex; align-items: center; justify-content: space-between; }
+
+/* CONTAINER */
+.container { padding: 1rem; width: 100%; }
+.containerFlex { padding: 1rem; width: 100%; display: flex; flex-direction: column; }
+
+/* BUTTONS */
+.btn-primary { background-color: #7477BF; border-radius: 5px; padding: 0.5rem 1rem; border: 1px solid #BEBEC9; transition: background-color 0.5s ease-out; color: #FFF; min-height: 3rem; flex-grow: 1; }
+.btn-primary:hover { background-color: #6062a1; }
+
+.btn-secondary { background-color: #999999; border-radius: 5px; padding: 0.5rem 1rem; border: 1px solid #BEBEC9; transition: background-color 0.5s ease-out; color: #FFF; min-height: 3rem; flex-grow: 1; }
+.btn-secondary:hover { background-color: #828282; }
+
+.btn-tertiary { background-color: transparent; border-radius: 100px; padding: 0.5rem 1rem; border: none; transition: background-color 0.5s ease-out; }
+.btn-tertiary:hover { background-color: #CFCFCF; }
+.btn-tertiaryActive { background-color: #81C98F; color: #FFF; border-radius: 100px; padding: 0.5rem 1rem; border: none; }
+
+/* INPUT */
+input[type=text] { background-color: #F5F5F5; border: 1px solid #BEBEC9; border-radius: 5px; min-height: 3rem; padding: 0.5rem; }
+
+textarea { background-color: #F5F5F5; border: 1px solid #BEBEC9; border-radius: 5px; min-height: 9rem; padding: 0.5rem; }
+
+input[type=checkbox] { -webkit-appearance: none; position: relative;width: 50px; height: 30px; border-radius: 25px; background-color: #ccc; transition: background .3s; outline: none; cursor: pointer; }
+input[type=checkbox]::after { content: ''; position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%); border-radius: 50%; height: 1.25rem; width: 1.25rem; background-color: white; transition: left .3s; }
+input[type=checkbox]:checked { background-color: #7477BF; }
+input[type=checkbox]:checked::after { left: 70%; }
+
+select { background-color: #F5F5F5; border: 1px solid #BEBEC9; border-radius: 5px; min-height: 3rem; padding: 0.5rem; }
+
+
+/* CHARTS */
+#traffic { max-height: 420px; }
+#dailyTraffic { max-height: 210px; }
+#mobileTraffic { max-height: 210px; }
+
+/* LABEL */
+label { text-align: left; }
 
 /*----------------------------------------------------------------------------------*/
 /* FLEXBOX UTILITES */
@@ -29,12 +69,15 @@ h1, h2, h3, h4, h5, h6, p { margin: 0 ;}
 .fd--r { flex-direction: row; }
 .fd--c { flex-direction: column; }
 
-
 /* JUSTIFY CONTENT */
 .jc--sb { justify-content: space-between; }
 
 /* ALIGN ITEMS */
 .ai--c { align-items: center; }
+
+/* ALIGN CONTENT */
+.ac--c { align-content: center; }
+.ac--s { align-content: stretch; }
 
 /* GAP */
 .ga--s { gap: 0.5rem; }
@@ -67,6 +110,7 @@ body {
 /* CSS GRID CHILDREN */
 /*----------------------------------------------------------------------------------*/
 
+/* HEADER */
 header {
     grid-area: header;
     display: flex;
@@ -77,12 +121,28 @@ header {
     padding: 24px 16px;
 }
 
+/* TABS */
 .tabs {
     grid-area: tabs;
-    background-color: #A45858;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: 50px;
 }
 
+.tabs .tabItem {
+    padding: 0 1rem;
+}
+
+.tabs .tabsFiller {
+    border-left: solid #CFCFCF 1px; 
+    border-bottom: solid #CFCFCF 1px; 
+    height: 100%; 
+    width: 100%; 
+    background-color: #F7F7F7;
+}
+
+/* ASIDE */
 aside {
     grid-area: aside;
     display: flex;
@@ -92,52 +152,188 @@ aside {
     background-color: #4D4C72;
 }
 
+/* GENERAL TRAFFIC */
 .generalTraffic {
     grid-area: generalTraffic;
-    background-color: #A49158;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: solid #CFCFCF 1px;
 }
 
+.generalTraffic .buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.generalTraffic .buttonGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+/* DAILY TRAFFIC */
 .dailyTraffic {
     grid-area: dailyTraffic;
-    background-color: #6CA458;
-    height: 400px;
+    display: flex;
+    border-right: solid #CFCFCF 1px; 
 }
 
+/* MOBILE TRAFFIC */
 .mobileTraffic {
     grid-area: mobileTraffic;
-    background-color: #58A48A;
-    height: 400px;
+    display: flex;
 }
 
+/* SOCIAL TRAFFIC */
 .socialTraffic {
     grid-area: socialTraffic;
-    background-color: #588DA4;
-    height: 400px;
+    display: flex;
+    border-top: solid #CFCFCF 1px;
+    border-bottom: solid #CFCFCF 1px;
 }
 
+.socialTraffic .socialContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.socialTraffic .socialContent {
+    display: flex;
+    background-color: #F5F5F5;
+    border: 1px solid #CFCFCF;
+    border-radius: 10px;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.socialTraffic img {
+    border-radius: 40px 40px 40px 40px;
+    padding: 0.5rem;
+    background-color: #7477BF;
+    margin-right: 1rem;
+}
+
+.socialTraffic h3 {
+    color: #777777;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.socialTraffic p {
+    color: #7477BF;
+    font-size: 1rem;
+}
+
+/* NEW MEMEBERS */
 .newMembers {
     grid-area: newMembers;
-    background-color: #5865A4;
-    height: 400px;
+    display: flex;
 }
 
+.newMembers .memberContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0 0 0.5rem 0;
+}
+
+.newMembers .memberContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    max-width: 235px;
+    word-wrap: break-word;
+    margin-right: auto;
+}
+
+/* RECENT ACTIVITIES */
 .recentActivity {
     grid-area: recentActivity;
-    background-color: #6C58A4;
-    height: 400px;
+    border-left: solid #CFCFCF 1px; 
+}
+.recentActivity .activityContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0 0 0.5rem 0;
 }
 
+.recentActivity .activityContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    max-width: 250px;
+    word-wrap: break-word;
+    margin-right: auto;
+}
+
+/* MESSAGE USER */
 .messageUser {
     grid-area: messageUser;
-    background-color: #A45860;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-top: solid #CFCFCF 1px;
+    
 }
 
+.messageUser form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* SETTINGS */
 .settings {
     grid-area: settings;
-    background-color: #9458A4;
-    height: 400px;
+    display: flex;
+    border-top: solid #CFCFCF 1px;
+    border-left: solid #CFCFCF 1px;
+}
+
+.settings .settingsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.settings .switchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 280px;
+}
+
+.settings .selectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.settings .settingsBtnGroup {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    gap: 1rem;
+}
+
+.settings form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 }
 
 
@@ -163,6 +359,14 @@ aside {
         "aside messageUser messageUser"
         "aside settings settings";
     }
+
+    /*----------------------------------------------------------------------------------*/
+    /* CSS GRID CHILDREN */
+    /*----------------------------------------------------------------------------------*/
+
+    .recentActivity {
+        border-top: solid #CFCFCF 1px; 
+    }
     
   }
 
@@ -178,14 +382,19 @@ aside {
     /*----------------------------------------------------------------------------------*/
 
     /* AVATARS */
-    .avatar-s { width: 24px; height: 24px; border-radius: 12px 12px 12px 12px; }
+    .avatar-s { width: 32px; height: 32px; border-radius: 16px 16px 16px 16px; }
     .avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
 
     /* TYPOGRAPHY */
-    h1, h2, h3, h4, h5, h6, p { margin: 0 ;}
+    h1, h2, h3, h4, h5, h6, p { margin: 0; }
+    h2 { margin-bottom: 1rem; }
 
     h1 { font-size: 1.5rem; }
     p  { font-size: 0.875rem; }
+
+    /* ALERT */
+    .alert {  }
+
 
     /*----------------------------------------------------------------------------------*/
     /* FLEXBOX UTILITES */
@@ -253,8 +462,22 @@ aside {
        
     }
 
+    .generalTraffic .buttonContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .generalTraffic .buttonGroup {
+       margin-top: 1rem;
+    }
+    
+
     .dailyTraffic {
-       
+        border-bottom: solid #CFCFCF 1px; 
+    }
+
+    .socialTraffic h3 {
+        font-size: 2rem;
     }
 
     .mobileTraffic {
@@ -265,20 +488,27 @@ aside {
        
     }
 
+    .socialTraffic .socialContainer {
+
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     .newMembers {
        
     }
 
     .recentActivity {
-        
+        border-top: solid #CFCFCF 1px; 
     }
 
     .messageUser {
        
     }
 
-    .settings {
-       
+    .settings .settingsBtnGroup {
+        margin-top: 1rem;
     }
+    
     
   }

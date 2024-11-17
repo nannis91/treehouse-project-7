@@ -1,8 +1,8 @@
-Chart.defaults.color = '#fff';
+Chart.defaults.color = '#000';
 Chart.defaults.font.family = '"Rethink Sans", serif';
 
-const chartColor = '#6F4687';
-const chartBackgroundColor = 'rgba(111, 70, 135, 0.06)';
+const chartColor = '#C6C7D9';
+const chartBackgroundColor = 'rgba(116, 119, 191, 0.2)';
 const gridColor = 'rgba(255, 255, 255, 0.4)';
 
 const traffic = document.getElementById('traffic');
@@ -39,7 +39,9 @@ const mobileTraffic = document.getElementById('mobileTraffic');
               backgroundColor: chartBackgroundColor,
             },
             point: {
-              backgroundColor: '#8A57A8',
+              backgroundColor: chartBackgroundColor,
+              pointBorderColor: chartColor,
+              pointRadius: 5,
             }
           },
   
@@ -86,7 +88,7 @@ new Chart(dailyTraffic, {
     elements: {
       bar: {
 
-        backgroundColor: chartColor,
+        backgroundColor: '#7477BF',
       },
     },
       plugins: {
@@ -102,7 +104,7 @@ new Chart(dailyTraffic, {
   }
 });
 
-// Doughnut Daily Traffic
+// Doughnut Mobile Traffic
 new Chart(mobileTraffic, {
   type: 'doughnut',
   data: {
@@ -111,9 +113,9 @@ new Chart(mobileTraffic, {
       data: [60, 20, 20],
       borderWidth: 0,
       backgroundColor: [
-        '#6F4687',
-        '#876F46',
-        '#46876F'
+        '#7477BF',
+        '#81C98F',
+        '#51B6C8'
       ],
     }]
   },
@@ -143,8 +145,4 @@ new Chart(mobileTraffic, {
   }
 });
 
-
-window.addEventListener('resize', () => {
-  mychart.resize();
-});
  

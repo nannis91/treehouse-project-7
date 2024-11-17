@@ -19,7 +19,7 @@
             <p>|</p>
             <div class="d--f ai--c ga--s">
                 <img src="images/member-1.jpg" alt="Picture of logged in user" class="avatar-s">
-                <p>Victoria</p>
+                <p>Victoria Chambers</p>
             </div>
         </div>
     </header>
@@ -31,15 +31,212 @@
         <img src="images/svg/settings.svg" alt="Settings">
     </aside>
 
+    <div class="tabs">
+        <div class="d--f tabItem">
+            <p>Dashboard</p>
+        </div>
+        <div class="d--f tabsFiller"></div>
+    </div><!--/tabs-->
 
-    <div class="tabs">Tabs</div>
-    <div class="generalTraffic">Traffic</div>
-    <div class="dailyTraffic">Daily traffic</div>
-    <div class="mobileTraffic">Mobile traffic</div>
-    <div class="socialTraffic">Social traffic</div>
-    <div class="newMembers">New members</div>
-    <div class="recentActivity">Recent activity</div>
-    <div class="messageUser">Message user</div>
-    <div class="settings">Settings</div>
+    <div class="generalTraffic">
+        <div class="container">
+            <div class="alert">
+                <p><strong>Alert:</strong> You have unread messages</p>
+                <img src="images/svg/close_md.svg" alt="Close">
+            </div>
+
+            <div class="buttonContainer">
+                <h2>Traffic</h2>
+                <div class="buttonGroup">
+                    <button class="btn-tertiaryActive">Hourly</button>
+                    <button class="btn-tertiary">Daily</button>
+                    <button class="btn-tertiary">Weekly</button>
+                    <button class="btn-tertiary">Monthly</button>
+                </div>
+            </div>
+            <canvas id="traffic"></canvas>
+        </div>
+    </div><!--/generalTraffic-->
+
+    <div class="dailyTraffic">
+        <div class="container">
+            <h2>Daily traffic</h2>
+            <canvas id="dailyTraffic"></canvas>
+        </div>
+    </div><!--/dailyTraffic-->
+
+    <div class="mobileTraffic">
+        <div class="container">
+            <h2>Mobile traffic</h2>
+            <canvas id="mobileTraffic"></canvas>
+        </div>
+    </div><!--/mobileTraffic-->
+
+    <div class="socialTraffic">
+        <div class="container">
+            <h2>Social stats</h2>
+            <div class="socialContainer">
+                <div class="socialContent">
+                    <img src="images/svg/facebook.svg" alt="Facebook">
+                    <div class="ac--c">
+                        <p>Facebook</p> 
+                        <h3>10,230</h3>
+                    </div>
+                </div>
+                <div class="socialContent">
+                    <img src="images/svg/instagram.svg" alt="Instagram">
+                    <div class="ac--c">
+                        <p>Instagram</p> 
+                        <h3>16,445</h3>
+                    </div>
+                </div>
+                <div class="socialContent">
+                    <img src="images/svg/twitter.svg" alt="Twitter">
+                    <div class="ac--c">
+                        <p>Twitter</p> 
+                        <h3>22,189</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/socialTraffic-->
+
+    <div class="newMembers">
+        <div class="container">
+
+            <h2>New members</h2>
+
+            <div class="memberContainer">
+                <img src="images/member-1.jpg" alt="Picture of Victoria Chambers" class="avatar-m">
+                <div class="memberContent">
+                    <p>Victoria Chambers</p>
+                    <a href="_blank">victoria.chambers90@example.com</a>
+                </div>
+                <p><span>10/15/20</span></p>
+            </div>
+
+            <div class="memberContainer">
+                <img src="images/member-2.jpg" alt="Picture of Dale Byrd" class="avatar-m">
+                <div class="memberContent">
+                    <p>Dale Byrd</p>
+                    <a href="_blank">dale.byrd52@example.com</a>
+                </div>
+                <p><span>10/15/20</span></p>
+            </div>
+
+            <div class="memberContainer">
+                <img src="images/member-3.jpg" alt="Picture of Dawn Wood" class="avatar-m">
+                <div class="memberContent">
+                    <p>Dawn Wood</p>
+                    <a href="_blank">dawn.wood16@example.com</a>
+                </div>
+                <p><span>10/15/20</span></p>
+            </div>
+
+            <div class="memberContainer">
+                <img src="images/member-4.jpg" alt="Picture of Dan Oliver" class="avatar-m">
+                <div class="memberContent">
+                    <p>Dan Oliver</p>
+                    <a href="_blank">dan.oliver@example.com</a>
+                </div>
+                <p><span>10/15/20</span></p>
+            </div>
+
+        </div><!--/newMembers-->
+
+    </div>
+    <div class="recentActivity">
+        <div class="container">
+            <h2>Recent activities</h2>
+
+            <div class="activityContainer">
+                <img src="images/member-1.jpg" alt="Picture of Victoria Chambers" class="avatar-m">
+                <div class="activityContent">
+                    <p>Victoria Chambers commented on <strong>WebApp’s SEO Tips</strong></p>
+                    <p>4 hours ago</p>
+                </div>
+                <img src="images/svg/chevron_right.svg" alt="Chrevron">
+            </div>
+
+            <div class="activityContainer">
+                <img src="images/member-2.jpg" alt="Picture of Dale Byrd" class="avatar-m">
+                <div class="activityContent">
+                    <p>Dale Byrd liked the post <strong>Facebook's changes for 2021</strong></p>
+                    <p>5 hours ago</p>
+                </div>
+                <img src="images/svg/chevron_right.svg" alt="Chrevron">
+            </div>
+
+            <div class="activityContainer">
+                <img src="images/member-3.jpg" alt="Picture of Dawn Wood" class="avatar-m">
+                <div class="activityContent">
+                    <p>Dawn Wood commented on <strong>Facebook's changes for 2021</strong></p>
+                    <p>5 hours ago</p>
+                </div>
+                <img src="images/svg/chevron_right.svg" alt="Chrevron">
+            </div>
+
+            <div class="activityContainer">
+                <img src="images/member-4.jpg" alt="Picture of Dan Oliver" class="avatar-m">
+                <div class="activityContent">
+                    <p>Dan Oliver posted <strong>WebApp’s SEO Tips</strong></p>
+                    <p>1 day ago</p>
+                </div>
+                <img src="images/svg/chevron_right.svg" alt="Chrevron">
+            </div>
+
+        </div>
+    </div><!--/recentActivity-->
+
+    <div class="messageUser">
+        <div class="container">
+            <h2>Message user</h2>
+            <div class="messageContainer">
+            <form>
+                <label for="searchUser">Search for user</label>
+                <input type="text" id="searchUser">
+                <label for="messageUser">Message for user</label>
+                <textarea id="messageUser"></textarea>
+                <button type="submit" class="btn-primary">Send</button>
+            </form>
+            </div>
+        </div>
+    </div><!--/messageUser-->
+
+    <div class="settings">
+        <div class="containerFlex">
+            <h2>Settings</h2>
+            <form>
+                <div class="settingsContainer">
+                    <div class="switchContainer">
+                        <label for="emailNotification">Send email notifications</label>
+                        <input type="checkbox" id="emailNotification">
+                    </div>
+                    <div class="switchContainer">
+                        <label for="emailNotification">Set profile to public</label>
+                        <input type="checkbox" id="publicProfile">
+                    </div>
+                    <div class="selectContainer">
+                        <label for="chooseTimezone">Select timezone</label>
+                        <select name="cars" id="chooseTimezone">
+                            <option value="GMT">Choose timezone</option>
+                            <option value="GMT+1">Saab</option>
+                            <option value="GMT+2">Mercedes</option>
+                            <option value="GMT+3">Audi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settingsBtnGroup">
+                    <button type="submit" class="btn-primary">Save</button>
+                    <button type="reset" class="btn-secondary">Cancel</button>
+                </div>
+                
+            </form>
+            
+        </div>
+    </div>
+
+    <script src="js/charts.js"></script>
 </body>
 </html>
