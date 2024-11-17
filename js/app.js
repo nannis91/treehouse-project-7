@@ -4,6 +4,7 @@ Chart.defaults.font.family = '"Rethink Sans", serif';
 const chartColor = '#C6C7D9';
 const chartBackgroundColor = 'rgba(116, 119, 191, 0.2)';
 const gridColor = 'rgba(255, 255, 255, 0.4)';
+const trafficBtnGroup = document.getElementById('trafficBtnGroup');
 
 const trafficCanvas = document.getElementById('traffic');
 const dailyTraffic = document.getElementById('dailyTraffic');
@@ -116,9 +117,6 @@ function updateConfigByMutating(arr) {
 
 
 
-
-const trafficBtnGroup = document.getElementById('trafficBtnGroup');
-
 // Event listner to the alert icon that remvoes message
 const alertBtn = document.getElementById('alertBtn').addEventListener('click', (e) => {
     const alertMessage = document.getElementById('alertMessage').style.display = 'none';
@@ -127,17 +125,27 @@ const alertBtn = document.getElementById('alertBtn').addEventListener('click', (
 
 trafficBtnGroup.addEventListener('click', (e) => {
 
+    const children = trafficBtnGroup.children;
+    
+    for (let i = 0; i < children.length; i++) {
+        children[i].className = 'btn-tertiary'
+    }
+
     if (e.target.textContent === "Hourly") {
-        updateChartData(trafficChart, hourlyLable, hourlyData)
+        updateChartData(trafficChart, hourlyLable, hourlyData);
+       e.target.className = 'btn-tertiaryActive';
 
     } else if (e.target.textContent === "Daily") {
-        updateChartData(trafficChart, dailyLable, dailyData)
+        updateChartData(trafficChart, dailyLable, dailyData);
+        e.target.className = 'btn-tertiaryActive';
 
     } else if (e.target.textContent === "Weekly") {
-        updateChartData(trafficChart, weeklyLable, weeklyData)
+        updateChartData(trafficChart, weeklyLable, weeklyData);
+         e.target.className = 'btn-tertiaryActive';
         
     } else if (e.target.textContent === "Monthly") {
-        updateChartData(trafficChart, monthlyLable, monthlyData)
+        updateChartData(trafficChart, monthlyLable, monthlyData);
+         e.target.className = 'btn-tertiaryActive';
     }
 });
 
