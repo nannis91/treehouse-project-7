@@ -97,8 +97,6 @@ const trafficChart = new Chart(trafficCanvas, {
 });
 
 
-
-
 // Doughnut Mobile Traffic
 new Chart(mobileTraffic, {
   type: 'doughnut',
