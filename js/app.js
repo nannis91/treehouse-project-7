@@ -65,6 +65,38 @@ const trafficChart = new Chart(trafficCanvas, {
   }
 });
 
+ // Chart for Daily Traffic
+ new Chart(dailyTraffic, {
+  type: 'bar',
+  data: {
+    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    datasets: [{
+      data: [70, 120, 175, 125, 200, 225, 100 ],
+      borderWidth: 0
+    }]
+  },
+  options: {
+  responsive: true, 
+  maintenanceAspectRatio: false,
+    elements: {
+      bar: {
+        backgroundColor: '#7477BF',
+      },
+    },
+      plugins: {
+          legend:{ 
+              display: false,
+            }
+      },
+      scales: {
+          y: {
+              beginAtZero: true
+      }
+    }
+  }
+});
+
+
 
 
 // Doughnut Mobile Traffic
