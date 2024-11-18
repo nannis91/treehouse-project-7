@@ -207,9 +207,21 @@ aside {
     grid-area: aside;
     display: flex;
     gap: 2rem;
+    padding-top: 2rem;
     flex-direction: column;
-    padding: 2rem;
     background-color: #4D4C72;
+    align-items: center;
+}
+
+aside img {
+    padding: 1rem;
+    transition: background-color 0.3s ease-out;
+}
+
+aside img:hover {
+    padding: 1rem;
+    background-color: #7477BF;
+    border-radius: 10px;
 }
 
 /* GENERAL TRAFFIC */
