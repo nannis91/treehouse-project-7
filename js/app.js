@@ -1,15 +1,18 @@
+const trafficBtnGroup = document.getElementById('trafficBtnGroup');
+
+// Colors and utilites for charts
 Chart.defaults.color = '#000';
 Chart.defaults.font.family = '"Rethink Sans", serif';
-
 const chartColor = '#C6C7D9';
 const chartBackgroundColor = 'rgba(116, 119, 191, 0.2)';
 const gridColor = 'rgba(255, 255, 255, 0.4)';
-const trafficBtnGroup = document.getElementById('trafficBtnGroup');
 
+// Get canvas for Charts
 const trafficCanvas = document.getElementById('traffic');
 const dailyTraffic = document.getElementById('dailyTraffic');
 const mobileTraffic = document.getElementById('mobileTraffic');
 
+// Mockdata for traffic chart
 const hourlyLable = [ "00.00", "01.00", "02.00", "03.00", "04.00", "05.00", "06.00", "07.00", "08.00", "09.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00", "19.00", "20.00", "21.00", "22.00", "23.00" ];
 const hourlyData = [ 2186, 1802, 609, 1131, 1684, 761, 2146, 2275, 1657, 1982, 822, 1439, 1545, 1432, 1869, 2004, 863, 337, 341, 1618, 616, 2300, 1459, 812 ];
 
@@ -145,14 +148,12 @@ function updateConfigByMutating(arr) {
 }
 
 
-
-
 // Event listner to the alert icon that remvoes message
 const alertBtn = document.getElementById('alertBtn').addEventListener('click', (e) => {
     const alertMessage = document.getElementById('alertMessage').style.display = 'none';
 });
 
-
+// Event listner to the button group for traffic chart
 trafficBtnGroup.addEventListener('click', (e) => {
 
     const children = trafficBtnGroup.children;
@@ -179,7 +180,7 @@ trafficBtnGroup.addEventListener('click', (e) => {
     }
 });
 
-
+// Function to call when you want to update charts
 function updateChartData(chart, newLabels, newData) {
     chart.data.labels = newLabels;
   
@@ -189,3 +190,23 @@ function updateChartData(chart, newLabels, newData) {
 
     chart.update();
   }
+
+  /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function notificationMenu() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

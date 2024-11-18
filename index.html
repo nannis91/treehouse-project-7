@@ -12,10 +12,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    
     <header id="header">
         <h1>WebApp™</h1>
         <div class="d--f ai--c ga--m">
-            <img src="images/svg/bell.svg" alt="Notifications" id="notificationBell">
+            <div class="dropdown">
+                <img src="images/svg/bell.svg" class="dropbtn" alt="Notifications" id="notificationBell" onclick="notificationMenu()">
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">Victoria Chambers commented on <strong>WebApp’s SEO Tips</strong></a>
+                  <a href="#">Dale Byrd liked the post <strong>Facebook's changes for 2021</strong></a>
+                </div>
+              </div>
             <p>|</p>
             <div class="d--f ai--c ga--s">
                 <img src="images/member-1.jpg" alt="Picture of logged in user" class="avatar-s">
