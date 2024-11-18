@@ -1,5 +1,6 @@
 const trafficBtnGroup = document.getElementById('trafficBtnGroup');
-const messageInput = document.getElementById('searchUser');
+
+const messageForm = document.getElementById('messageForm');
 
 // Mockdata for users
 const userNames = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
@@ -28,11 +29,6 @@ const weeklyData = [700, 1250, 1000, 2000, 1500, 1700, 1225, 1800, 2300, 1500, 2
 
 const monthlyLable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 const monthlyData = [1176, 418, 1692, 1490, 1371, 1470, 205, 1843, 358, 1032, 900, 1291, 1304, 482, 1676, 1896, 1385, 1949, 48, 2226, 1011, 779, 1622, 1327, 1438, 1852, 1724, 897, 1940, 951];
-
-
-messageInput.addEventListener('input', (e) => {
-  console.log(e.target.value);
-});
 
 
 const trafficChart = new Chart(trafficCanvas, {
@@ -191,6 +187,7 @@ trafficBtnGroup.addEventListener('click', (e) => {
     }
 });
 
+
 // Function to call when you want to update charts
 function updateChartData(chart, newLabels, newData) {
     chart.data.labels = newLabels;
@@ -221,3 +218,18 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+// When message form is submitted
+messageForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const searchUser = document.getElementById('searchUser');
+  const messageInput = document.getElementById('messageUser');
+
+  if ( messageInput.value === '' || searchUser.value === '' ) {
+    alert(`Make sure you filled in all fields.`);
+  } else {
+    alert(`Message has been sent!`);
+  }
+
+});
