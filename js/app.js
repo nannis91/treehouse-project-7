@@ -229,13 +229,27 @@ searchUser.addEventListener('input', (e) => {
   for (let i = 0; i < search.length; i++) {
     suggestionsContainer.style.display = 'block'
     suggestionsContainer.innerHTML = '';
-    suggestionsContainer.innerHTML += (`<li>${search[i]}</li>`);
+    suggestionsContainer.innerHTML += (`<li id="autoItem">${search[i]}</li>`);
+
+    let autoItem = document.getElementById('autoItem');
+    autoItem.addEventListener('click', (e) => {
+      console.log(e.target.innerHTML);
+    });
+    
   }
 
 });
 
+
+
+
 // Funcionallity hide suggestion container when you leave input
-searchUser.addEventListener('blur', (e) => {
+document.addEventListener('blur', (e) => {
+
+  if (e.target =!) {
+
+  };
+  
   suggestionsContainer.style.display = 'none'
 }); 
 
