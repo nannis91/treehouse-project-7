@@ -237,7 +237,12 @@
             <div class="messageContainer">
             <form id="messageForm">
                 <label for="searchUser">Search for user*</label>
-                <input type="text" id="searchUser" itemid="searchUser">
+                <input type="text" id="searchUser" itemid="searchUser" autocomplete="off">
+                <div class="suggestions" >
+                    <ul id="suggestions-container">
+                        <li>test</li>
+                    </ul>
+                </div>
                 <label for="messageUser">Message for user*</label>
                 <textarea id="messageUser" itemid="messageUser"></textarea>
                 <button type="submit" class="btn-primary">Send</button>

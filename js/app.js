@@ -1,9 +1,6 @@
 const trafficBtnGroup = document.getElementById('trafficBtnGroup');
-
 const messageForm = document.getElementById('messageForm');
 
-// Mockdata for users
-const userNames = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
 
 // Colors and utilites for charts
 Chart.defaults.color = '#000';
@@ -218,6 +215,36 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+const searchUser = document.getElementById('searchUser');
+const suggestionsContainer = document.getElementById('suggestions-container');
+  // Mockdata for users
+const userNames = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+
+// Input-händelse: Lägg till en input-händelse på HTML-inputen för att lyssna på när användaren skriver.
+searchUser.addEventListener('input', (e) => {
+  let input = e.target.value.toLowerCase();
+
+      // Filtera array: Filtrera din JavaScript-array baserat på det användaren skriver, med hjälp av array.filter().
+  let search = userNames.filter(user => user.toLocaleLowerCase().includes(input));
+
+  // Visa förslag: Skapa en lista med matchande värden och visa dem under inputfältet.
+  for (let i = 0; i < search.length; i++) {
+    
+    suggestionsContainer.innerHTML += (`<li>${search[i]}</li>`);
+
+  };
+
+});
+
+
+
+
+// Klicka/Markera: Lägg till ett event för att användaren ska kunna välja ett förslag, vilket fyller i inputfältet.
+
+// Styla lista: Använd CSS för att göra förslagslistan tydlig och interaktiv.
+
 
 
 // When message form is submitted
