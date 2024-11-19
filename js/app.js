@@ -217,26 +217,27 @@ window.onclick = function(event) {
 }
 
 
+// Funcionallity for to show autocomplete suggestions
 const searchUser = document.getElementById('searchUser');
 const suggestionsContainer = document.getElementById('suggestions-container');
-  // Mockdata for users
 const userNames = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
 
-// Input-händelse: Lägg till en input-händelse på HTML-inputen för att lyssna på när användaren skriver.
 searchUser.addEventListener('input', (e) => {
   let input = e.target.value.toLowerCase();
-
-      // Filtera array: Filtrera din JavaScript-array baserat på det användaren skriver, med hjälp av array.filter().
   let search = userNames.filter(user => user.toLocaleLowerCase().includes(input));
 
-  // Visa förslag: Skapa en lista med matchande värden och visa dem under inputfältet.
   for (let i = 0; i < search.length; i++) {
-    
+    suggestionsContainer.style.display = 'block'
+    suggestionsContainer.innerHTML = '';
     suggestionsContainer.innerHTML += (`<li>${search[i]}</li>`);
-
-  };
+  }
 
 });
+
+// Funcionallity hide suggestion container when you leave input
+searchUser.addEventListener('blur', (e) => {
+  suggestionsContainer.style.display = 'none'
+}); 
 
 
 
