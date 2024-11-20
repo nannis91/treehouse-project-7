@@ -264,8 +264,6 @@ document.addEventListener('click', (e) => {
 });
 
 
-
-
 // When message form is submitted
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -279,3 +277,30 @@ messageForm.addEventListener('submit', (e) => {
   }
 
 });
+
+// Functions for localstorage to save switch settings
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+checkboxes.forEach(checkbox => {
+  const savedStatus = localStorage.getItem(checkbox.id);
+  checkbox.checked = savedStatus === 'true';
+});
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+      localStorage.setItem(checkbox.id, checkbox.checked);
+  });
+});
+
+// Functions for localstorage to save timezone settings
+const timeZone = document.getElementById('chooseTimezone');
+const savedTimeZone = localStorage.getItem('selectedOption');
+
+if (savedTimeZone) {
+  timeZone.value = savedTimeZone;
+}
+
+timeZone.addEventListener('change', () => {
+  localStorage.setItem('selectedOption', timeZone.value);
+});
+
