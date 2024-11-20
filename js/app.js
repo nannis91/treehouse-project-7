@@ -273,6 +273,8 @@ messageForm.addEventListener('submit', (e) => {
   if ( messageInput.value === '' || searchUser.value === '' ) {
     alert(`Make sure you filled in all fields.`);
   } else {
+    messageInput.value = '';
+    searchUser.value = '';
     alert(`Message has been sent!`);
   }
 
@@ -302,5 +304,10 @@ if (savedTimeZone) {
 
 timeZone.addEventListener('change', () => {
   localStorage.setItem('selectedOption', timeZone.value);
+});
+
+const clearSettingStorage = document.getElementById('clearSettingStorage');
+clearSettingStorage.addEventListener('click', () => {
+  localStorage.clear();
 });
 
