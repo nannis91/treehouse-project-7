@@ -3,7 +3,7 @@
 /*----------------------------------------------------------------------------------*/
 
 * { box-sizing: border-box; }
-html { background-color: #FFF; font-family: "Rethink Sans", sans-serif; color: #191919;  }
+html { background-color: #FFF; font-family: "Rethink Sans", sans-serif; color: #191919; font-size: .875rem;  }
 a { color: #7477BF; text-decoration: none; font-size: 14px; text-align: left;}
 
 /*----------------------------------------------------------------------------------*/
@@ -11,12 +11,13 @@ a { color: #7477BF; text-decoration: none; font-size: 14px; text-align: left;}
 /*----------------------------------------------------------------------------------*/
 
 /* AVATARS */
-.avatar-s { width: 60px; height: 60px; border-radius: 30px 30px 30px 30px; }
+.avatar-s { width: 32px; height: 32px; border-radius: 16px 16px 16px 16px; }
 .avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6, p { margin: 0; text-align: left; font-weight: 400; }
 h2 { margin-bottom: 1rem; }
+h1 { font-size: 1.2rem; }
 
 /* ALERT */
 .alert { width: 100%; background-color: #7477BF; color: #fff; padding: 1rem 1.5rem; margin-bottom: 2rem; border-radius: 5px; display: flex; align-items: center; justify-content: space-between; }
@@ -114,10 +115,10 @@ label { text-align: left; }
 .ac--s { align-content: stretch; }
 
 /* GAP */
-.ga--s { gap: 0.5rem; }
-.ga--m { gap: 1rem; }
-.ga--l { gap: 1.5rem; }
-.ga--xl { gap: 2rem; }
+.ga--s { gap: 0.2rem; }
+.ga--m { gap: 0.5rem; }
+.ga--l { gap: 0.8rem; }
+.ga--xl { gap: 1rem; }
 
 
 /*----------------------------------------------------------------------------------*/
@@ -125,19 +126,19 @@ label { text-align: left; }
 /*----------------------------------------------------------------------------------*/
 
 body {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 100px 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    "header header header" 
-    "aside tabs tabs"
-    "aside generalTraffic generalTraffic"
-    "aside dailyTraffic mobileTraffic"
-    "aside socialTraffic socialTraffic"
-    "aside newMembers recentActivity"
-    "aside messageUser settings";
-    text-align: center;
+    "header" 
+    "aside"
+    "tabs"
+    "generalTraffic"
+    "dailyTraffic"
+    "mobileTraffic"
+    "socialTraffic"
+    "newMembers"
+    "recentActivity"
+    "messageUser"
+    "settings";
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -208,11 +209,11 @@ header {
 aside {
     grid-area: aside;
     display: flex;
-    gap: 2rem;
-    padding-top: 2rem;
-    flex-direction: column;
+    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1rem;
     background-color: #4D4C72;
-    align-items: center;
 }
 
 aside img {
@@ -238,21 +239,21 @@ aside img:hover {
 .generalTraffic .buttonContainer {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 1rem;
 }
 
 .generalTraffic .buttonGroup {
     display: flex;
-    gap: 1rem;
+    margin-top: 1rem;
 }
 
 /* DAILY TRAFFIC */
 .dailyTraffic {
     grid-area: dailyTraffic;
     display: flex;
-    border-right: solid #CFCFCF 1px; 
+    border-bottom: solid #CFCFCF 1px; 
 }
 
 /* MOBILE TRAFFIC */
@@ -269,9 +270,13 @@ aside img:hover {
     border-bottom: solid #CFCFCF 1px;
 }
 
+.socialTraffic h3 {
+    font-size: 2rem;
+}
+
 .socialTraffic .socialContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
 }
@@ -312,11 +317,15 @@ aside img:hover {
 
 .newMembers .memberContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
     border-bottom: solid #CFCFCF 1px;
-    padding: 0 0 0.5rem 0;
+    padding: 0 0 1rem 0;
+}
+
+.newMembers .memberContainer img {
+    margin-bottom: 1rem;
 }
 
 .newMembers .memberContent {
@@ -325,22 +334,30 @@ aside img:hover {
     align-content: center;
     margin-left: 1rem;
     max-width: 235px;
-    word-wrap: break-word;
-    margin-right: auto;
+}
+
+
+.newMembers .memberContent a, p {
+text-align: center;
 }
 
 /* RECENT ACTIVITIES */
 .recentActivity {
     grid-area: recentActivity;
-    border-left: solid #CFCFCF 1px; 
+    border-top: solid #CFCFCF 1px;
 }
+
 .recentActivity .activityContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
     border-bottom: solid #CFCFCF 1px;
-    padding: 0 0 0.5rem 0;
+    padding: 0 0 1rem 0;
+}
+
+.recentActivity .activityContainer img {
+    margin-bottom: 1rem;
 }
 
 .recentActivity .activityContent {
@@ -351,6 +368,10 @@ aside img:hover {
     max-width: 250px;
     word-wrap: break-word;
     margin-right: auto;
+}
+
+.activityChevron {
+    display: none;
 }
 
 /* MESSAGE USER */
@@ -425,6 +446,7 @@ aside img:hover {
     display: flex;
     flex-direction: row;
     align-content: stretch;
+    margin-top: 1rem;
     gap: 1rem;
 }
 
@@ -436,17 +458,22 @@ aside img:hover {
 }
 
 
+
 /*----------------------------------------------------------------------------------*/
 /* 768px viewport */
 /*----------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
 
     /*----------------------------------------------------------------------------------*/
     /* CSS GRID SETTINGS */
     /*----------------------------------------------------------------------------------*/
 
     body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr;
+        grid-template-rows: auto;
         grid-template-areas: 
         "header header header" 
         "aside tabs tabs"
@@ -463,151 +490,215 @@ aside img:hover {
     /* CSS GRID CHILDREN */
     /*----------------------------------------------------------------------------------*/
 
-    .recentActivity {
-        border-top: solid #CFCFCF 1px; 
+    /* ASIDE */
+    aside {
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
     }
-    
-  }
+
+    /* GENERAL TRAFFIC */
+
+.generalTraffic .buttonContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.generalTraffic .buttonGroup {
+    margin-top: 0;
+    gap: 1rem;
+}
+
+/* DAILY TRAFFIC */
+.dailyTraffic {
+    border-bottom: none; 
+    border-right: solid #CFCFCF 1px; 
+
+}
+
+
+/* SOCIAL TRAFFIC */
+.socialTraffic {
+    grid-area: socialTraffic;
+    display: flex;
+    border-bottom: solid #CFCFCF 1px;
+}
+
+.socialTraffic .socialContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.socialTraffic .socialContent {
+    display: flex;
+    background-color: #F5F5F5;
+    border: 1px solid #CFCFCF;
+    border-radius: 10px;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.socialTraffic .socialIcon {
+    display: flex;
+    border-radius: 999px;
+    padding: 1rem;
+    background-color: #7477BF;
+    margin-right: 1rem;
+}
+
+.socialTraffic h3 {
+    color: #777777;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.socialTraffic p {
+    color: #7477BF;
+    font-size: 1rem;
+}
+
+/* NEW MEMEBERS */
+.newMembers {
+    grid-area: newMembers;
+    display: flex;
+}
+
+.newMembers .memberContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0 0 0.5rem 0;
+}
+
+.newMembers .memberContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    max-width: 235px;
+    word-wrap: break-word;
+    margin-right: auto;
+}
+
+.newMembers .memberContent a, p {
+    text-align: left;
+    }
+
+    .newMembers .memberContainer img {
+        margin-bottom: 0;
+    }
+
+/* RECENT ACTIVITIES */
+.recentActivity {
+    grid-area: recentActivity;
+    border-left: solid #CFCFCF 1px; 
+}
+.recentActivity .activityContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0;
+}
+
+.recentActivity .activityContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    word-wrap: break-word;
+    margin-right: auto;
+    min-width: 400px;
+}
+    .activityChevron {
+        display: block;
+    }
+
+
+
+}
 
 
 /*----------------------------------------------------------------------------------*/
-/* 320px viewport */
+/* 1024px viewport */
 /*----------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 320px) {
-
-    /*----------------------------------------------------------------------------------*/
-    /* DRY STYLES */
-    /*----------------------------------------------------------------------------------*/
-
-    /* AVATARS */
-    .avatar-s { width: 32px; height: 32px; border-radius: 16px 16px 16px 16px; }
-    .avatar-m { width: 84px; height: 84px; border-radius: 41px 41px 41px 41px; }
-
-    /* TYPOGRAPHY */
-    h1, h2, h3, h4, h5, h6, p { margin: 0; }
-    h2 { margin-bottom: 1rem; }
-
-    h1 { font-size: 1.5rem; }
-    p  { font-size: 0.875rem; }
-
-    /* ALERT */
-    .alert {  }
-
-
-    /*----------------------------------------------------------------------------------*/
-    /* FLEXBOX UTILITES */
-    /*----------------------------------------------------------------------------------*/
-
-    /* DISPLAY */
-    .d--f { display: flex; }
-    .d--if { display: inline-flex; }
-
-    /* JUSTIFY CONTENT */
-    .jc--sb { justify-content: space-between; }
-
-    /* ALIGN ITEMS */
-    .ai--c { align-items: center; }
-
-    /* GAP */
-    .ga--s { gap: 0.2rem; }
-    .ga--m { gap: 0.5rem; }
-    .ga--l { gap: 0.8rem; }
-    .ga--xl { gap: 1rem; }
-
-    /*----------------------------------------------------------------------------------*/
-    /* CSS GRID SETTINGS */
-    /*----------------------------------------------------------------------------------*/
+@media screen and (min-width: 1024px) {
 
     body {
-        grid-template-columns: 1fr;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr;
+        grid-template-rows: auto;
         grid-template-areas: 
-        "header" 
-        "aside"
-        "tabs"
-        "generalTraffic"
-        "dailyTraffic"
-        "mobileTraffic"
-        "socialTraffic"
-        "newMembers"
-        "recentActivity"
-        "messageUser"
-        "settings";
+        "header header header" 
+        "aside tabs tabs"
+        "aside generalTraffic generalTraffic"
+        "aside dailyTraffic mobileTraffic"
+        "aside socialTraffic socialTraffic"
+        "aside newMembers recentActivity"
+        "aside messageUser settings";
     }
 
-    /*----------------------------------------------------------------------------------*/
-    /* CSS GRID CHILDREN */
-    /*----------------------------------------------------------------------------------*/
+}
 
-    header {
-       
-    }
 
-    .tabs {
-       
-    }
+/*----------------------------------------------------------------------------------*/
+/* CSS GRID CHILDREN */
+/*----------------------------------------------------------------------------------*/
 
-    aside {
-        grid-area: aside;
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1.5rem 1rem;
-        background-color: #4D4C72;
-    }
+/* NEW MEMEBERS */
+.newMembers .memberContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0 0 1rem 0;
+}
 
-    .generalTraffic {
-       
-    }
+.newMembers .memberContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    max-width: 235px;
+    word-wrap: break-word;
+    margin-right: auto;
+}
 
-    .generalTraffic .buttonContainer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* RECENT ACTIVITIES */
+.recentActivity {
+    grid-area: recentActivity;
+    border-top: none;
+}
 
-    .generalTraffic .buttonGroup {
-       margin-top: 1rem;
-    }
-    
+.recentActivity .activityContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: solid #CFCFCF 1px;
+    padding: 0 0 1rem 0;
+}
 
-    .dailyTraffic {
-        border-bottom: solid #CFCFCF 1px; 
-    }
+.recentActivity .activityContainer img {
+    margin-bottom: 0;
+}
 
-    .socialTraffic h3 {
-        font-size: 2rem;
-    }
-
-    .mobileTraffic {
-        
-    }
-
-    .socialTraffic {
-       
-    }
-
-    .socialTraffic .socialContainer {
-
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .newMembers {
-       
-    }
-
-    .recentActivity {
-        border-top: solid #CFCFCF 1px; 
-    }
-
-    .messageUser {
-       
-    }
-
-    .settings .settingsBtnGroup {
-        margin-top: 1rem;
-    }
-    
-    
-  }
+.recentActivity .activityContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 1rem;
+    max-width: 250px;
+    word-wrap: break-word;
+    margin-right: auto;
+}
