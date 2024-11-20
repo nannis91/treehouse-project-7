@@ -223,42 +223,46 @@ const suggestionsContainer = document.getElementById('suggestions-container');
 const userNames = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
 
 searchUser.addEventListener('input', (e) => {
-  let input = e.target.value.toLowerCase();
-  let search = userNames.filter(user => user.toLocaleLowerCase().includes(input));
 
-  for (let i = 0; i < search.length; i++) {
-    suggestionsContainer.style.display = 'block'
-    suggestionsContainer.innerHTML = '';
-    suggestionsContainer.innerHTML += (`<li id="autoItem">${search[i]}</li>`);
+  const input = e.target.value.toLowerCase();
 
-    let autoItem = document.getElementById('autoItem');
-    autoItem.addEventListener('click', (e) => {
-      console.log(e.target.innerHTML);
+  const filteredNames = userNames.filter(user => 
+    user.toLowerCase().includes(input)
+  );
+
+  suggestionsContainer.innerHTML = '';
+
+  if (filteredNames.length > 0) {
+
+    filteredNames.forEach(name => {
+      const listItem = document.createElement('a');
+      listItem.textContent = name;
+      listItem.className = 'autoItem'
+
+      listItem.addEventListener('click', () => {
+        searchUser.value = name;
+        suggestionsContainer.innerHTML = ''; 
+      });
+
+      suggestionsContainer.appendChild(listItem);
+      
     });
-    
+  } else {
+    const noResults = document.createElement('a');
+    noResults.textContent = 'No user found';
+    suggestionsContainer.appendChild(noResults);
   }
-
 });
 
+const suggestionItem = document.getElementById('autoItem')
 
+document.addEventListener('click', (e) => {
+  if (e.target != suggestionItem) {
+    suggestionsContainer.innerHTML = '';
+  }
+    
+});
 
-
-// Funcionallity hide suggestion container when you leave input
-document.addEventListener('blur', (e) => {
-
-  if (e.target =!) {
-
-  };
-  
-  suggestionsContainer.style.display = 'none'
-}); 
-
-
-
-
-// Klicka/Markera: Lägg till ett event för att användaren ska kunna välja ett förslag, vilket fyller i inputfältet.
-
-// Styla lista: Använd CSS för att göra förslagslistan tydlig och interaktiv.
 
 
 
